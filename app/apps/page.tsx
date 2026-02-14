@@ -12,8 +12,8 @@ import { cn } from "@/lib/utils";
 
 const apps = [
   { id: "1", name: "MOVIES", url: "https://dexterisntfunny.carrd.co/#movies", description: "Stream movies and shows for free - regularly updated library", category: "Entertainment", hot: true },
-  { id: "2", name: "Music", url: "https://dexteristalentedmusic.vercel.app", description: "Free music ported from spotify - no account required", category: "Entertainment" },
-  { id: "3", name: "CHATGPT", url: "https://gptlite.vercel.app", description: "Free AI chatbot alternative - no account required", category: "AI Tools", new: true },
+  { id: "2", name: "Music", url: "https://dexteristalentedmusic.vercel.app/", description: "Free music ported from spotify - no account required", category: "Entertainment" },
+  { id: "3", name: "CHATGPT", url: "https://gptlite.vercel.app/chat", description: "Free AI chatbot alternative - no account required", category: "AI Tools", new: true },
   { id: "4", name: "AI WRITER", url: "https://ahrefs.com", description: "Rewrite and improve paragraphs with AI-powered suggestions", category: "Productivity" },
   { id: "5", name: "HUMANIZER", url: "https://www.summarizer.org", description: "Transform AI-generated text into natural human writing", category: "Productivity" },
 ];
