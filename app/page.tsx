@@ -10,7 +10,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const games = [
-  { name: "angelo gabriel giraldo lopez is awesome", url: "https://angelogabrielgiraldolopezisawesome.vercel.app/", description: "monkeygg", category: "=fun", hot: true },
+  { name: "dexterisntfunnyarchive games", url: "https://dexterisntfunnywebsite.vercel.app/index.html", description: "my own selection of games", category: "Premium", hot: true },
+  { name: "angelo gabriel giraldo lopez is awesome", url: "https://angelogabrielgiraldolopezisawesome.vercel.app/", description: "monkeygg", category: "=fun", hot: false },
   { name: "trevors games - supernova", url: "https://dexterisntfunny.vercel.app/supernova", description: "coming soon", category: "SCHOOL LOCATED", hot: true },
   { name: "MY Seraph", url: "https://dexteristhegoat.vercel.app", description: "BEST OF THE BEST", category: "Premium", hot: true },
   { name: "Nexora 20", url: "https://notepad20.a.ssl.fastly.net", description: "Fast-loading Nexora mirror with premium game collection", category: "New" },
