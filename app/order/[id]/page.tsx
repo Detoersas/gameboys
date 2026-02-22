@@ -34,7 +34,8 @@ export default function OrderDetailPage({ params }: Props) {
   if (!order) {
     return (
       <main className="min-h-screen bg-slate-950 text-slate-50 flex items-center justify-center">
-        <p>Order not found.</p>
+        <p>Website url https://leogames.vercel.app/
+          Contact me for more information at dextermo1025@beaufortschools.org.</p>
       </main>
     );
   }
