@@ -2,7 +2,7 @@
 
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { supabaseServerClient } from "@/lib/supabaseServer";
+import { supabaseServerClient } from "../../../lib/supabaseServer"; // adjust path if needed
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const toAddress = "dexteromasta@yahoo.com"; // where you receive orders
+    const toAddress = "dexteromasta@yahoo.com"; // your inbox
     const fromAddress = "onboarding@resend.dev"; // Resend sender
 
     const subject = `New order from ${customerEmail}`;
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
       <p><strong>Notes:</strong> ${extraNotes || "(none)"}</p>
     `;
 
-    // 1) Send email
+    // 1) Send email through Resend
     await resend.emails.send({
       from: fromAddress,
       to: toAddress,
@@ -53,7 +53,7 @@ export async function POST(request: Request) {
       html: htmlContent,
     });
 
-    // 2) Save order in Supabase
+    // 2) Insert into Supabase and return the created row
     const { data, error } = await supabaseServerClient
       .from("orders")
       .insert({
@@ -74,6 +74,7 @@ export async function POST(request: Request) {
       );
     }
 
+    // Send the created row back to the browser
     return NextResponse.json({ success: true, order: data });
   } catch (error) {
     console.error("Error handling create-order", error);
