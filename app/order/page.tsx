@@ -7,21 +7,21 @@ import React from "react";
 const ORDERS = [
   {
     id: "129391",
-    customerName: "John Doe",
-    status: "Shipped",
-    total: "$79.99",
+    customerName: "Pierce H",
+    status: "Completed",
+    total: "$0.00",
     items: [
-      { name: "Wireless Headphones", quantity: 1 },
-      { name: "USB-C Cable", quantity: 2 },
+      { name: "website url", quantity: 1 },
+      { name: "2 year warrenty", quantity: 1 },
     ],
   },
   {
     id: "100001",
-    customerName: "Jane Smith",
-    status: "Processing",
-    total: "$45.00",
+    customerName: "Angelo",
+    status: "Completed",
+    total: "$0.00",
     items: [
-      { name: "Gaming Mousepad", quantity: 1 },
+      { name: "personal website", quantity: 1 },
     ],
   },
 ];
