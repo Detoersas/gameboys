@@ -5,22 +5,15 @@ import React from "react";
 const ORDERS = [
   {
     id: "129391",
-    customerName: "Pierce H",
-    status: "Completed",
-    total: "$0.00",
-    items: [
-      { name: "website url", quantity: 1 },
-      { name: "2 year warrenty", quantity: 1 },
-    ],
+    customerName: "John Doe",
+    status: "Shipped",
+    total: "$79.99",
   },
   {
     id: "100001",
-    customerName: "Angelo",
-    status: "Completed",
-    total: "$0.00",
-    items: [
-      { name: "personal website", quantity: 1 },
-    ],
+    customerName: "Jane Smith",
+    status: "Processing",
+    total: "$45.00",
   },
 ];
 
@@ -34,8 +27,7 @@ export default function OrderDetailPage({ params }: Props) {
   if (!order) {
     return (
       <main className="min-h-screen bg-slate-950 text-slate-50 flex items-center justify-center">
-        <p>Website url https://leogames.vercel.app/
-          Contact me for more information at dextermo1025@beaufortschools.org.</p>
+        <p>Order not found.</p>
       </main>
     );
   }
