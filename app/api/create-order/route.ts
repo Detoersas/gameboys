@@ -2,7 +2,7 @@
 
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { addOrder } from "@/lib/ordersStore"; // <-- add this import
+import { supabaseServerClient } from "@/lib/supabaseServer";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const toAddress = "dexteromasta@yahoo.com"; // your inbox
+    const toAddress = "dexteromasta@yahoo.com"; // where you receive orders
     const fromAddress = "onboarding@resend.dev"; // Resend sender
 
     const subject = `New order from ${customerEmail}`;
@@ -53,20 +53,32 @@ export async function POST(request: Request) {
       html: htmlContent,
     });
 
-    // 2) Save order to orders.json
-    const savedOrder = await addOrder({
-      customerEmail,
-      customerName,
-      itemName,
-      quantity: quantity || 1,
-      extraNotes,
-    });
+    // 2) Save order in Supabase
+    const { data, error } = await supabaseServerClient
+      .from("orders")
+      .insert({
+        customer_email: customerEmail,
+        customer_name: customerName || null,
+        item_name: itemName,
+        quantity: quantity || 1,
+        extra_notes: extraNotes || null,
+      })
+      .select()
+      .single();
 
-    return NextResponse.json({ success: true, order: savedOrder });
+    if (error) {
+      console.error("Supabase insert error", error);
+      return NextResponse.json(
+        { error: "Failed to save order" },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ success: true, order: data });
   } catch (error) {
-    console.error("Error sending order email", error);
+    console.error("Error handling create-order", error);
     return NextResponse.json(
-      { error: "Failed to send email" },
+      { error: "Failed to submit order" },
       { status: 500 }
     );
   }
