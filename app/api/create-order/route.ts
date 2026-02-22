@@ -2,6 +2,7 @@
 
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { addOrder } from "@/lib/ordersStore"; // <-- add this import
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -23,11 +24,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // WHERE THE EMAIL GOES
     const toAddress = "dexteromasta@yahoo.com"; // your inbox
-
-    // WHO IT'S FROM (must be allowed by Resend)
-    const fromAddress = "onboarding@resend.dev"; // or a verified sender in your Resend account
+    const fromAddress = "onboarding@resend.dev"; // Resend sender
 
     const subject = `New order from ${customerEmail}`;
 
@@ -46,6 +44,7 @@ export async function POST(request: Request) {
       <p><strong>Notes:</strong> ${extraNotes || "(none)"}</p>
     `;
 
+    // 1) Send email
     await resend.emails.send({
       from: fromAddress,
       to: toAddress,
@@ -54,7 +53,16 @@ export async function POST(request: Request) {
       html: htmlContent,
     });
 
-    return NextResponse.json({ success: true });
+    // 2) Save order to orders.json
+    const savedOrder = await addOrder({
+      customerEmail,
+      customerName,
+      itemName,
+      quantity: quantity || 1,
+      extraNotes,
+    });
+
+    return NextResponse.json({ success: true, order: savedOrder });
   } catch (error) {
     console.error("Error sending order email", error);
     return NextResponse.json(
