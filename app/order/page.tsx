@@ -1,11 +1,13 @@
 // app/order/page.tsx
 
-import { supabaseServerClient } from "@/lib/supabaseServer";
+import { supabaseServerClient } from "../../lib/supabaseServer"; // adjust if needed
 
 export default async function OrderPage() {
   const { data: orders, error } = await supabaseServerClient
     .from("orders")
-    .select("id, created_at, customer_email, customer_name, item_name, quantity, extra_notes")
+    .select(
+      "id, created_at, customer_email, customer_name, item_name, quantity, extra_notes"
+    )
     .order("created_at", { ascending: false });
 
   if (error) {
