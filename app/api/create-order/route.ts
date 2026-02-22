@@ -40,17 +40,14 @@ Notes:
 ${extraNotes || "(none)"}
 `;
 
+    // Super simple HTML, no string tricks
     const htmlContent = `
       <h1>New Order</h1>
       <p><strong>Customer email:</strong> ${customerEmail}</p>
       <p><strong>Customer name:</strong> ${customerName || "(not provided)"}</p>
       <p><strong>Item:</strong> ${itemName}</p>
       <p><strong>Quantity:</strong> ${quantity || 1}</p>
-      <p><strong>Notes:</strong>  
-${
-        (extraNotes || "(none)").replace(/\n/g, "  
-")
-      }</p>
+      <p><strong>Notes:</strong> ${(extraNotes || "(none)")}</p>
     `;
 
     await resend.emails.send({
