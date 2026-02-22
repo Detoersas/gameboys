@@ -23,31 +23,27 @@ export async function POST(request: Request) {
       );
     }
 
-    const toAddress = process.env.EMAIL_TO || "dexteromasta@yahoo.com";
-    const fromAddress = process.env.EMAIL_FROM || "onboarding@resend.dev";
+    // WHERE THE EMAIL GOES
+    const toAddress = "dexteromasta@yahoo.com"; // your inbox
+
+    // WHO IT'S FROM (must be allowed by Resend)
+    const fromAddress = "onboarding@resend.dev"; // or a verified sender in your Resend account
 
     const subject = `New order from ${customerEmail}`;
 
-    const textContent = `A new order was placed.
+    const textContent = `A new order was placed.\n\nCustomer email: ${customerEmail}\nCustomer name: ${
+      customerName || "(not provided)"
+    }\n\nItem: ${itemName}\nQuantity: ${
+      quantity || 1
+    }\n\nNotes:\n${extraNotes || "(none)"}\n`;
 
-Customer email: ${customerEmail}
-Customer name: ${customerName || "(not provided)"}
-
-Item: ${itemName}
-Quantity: ${quantity || 1}
-
-Notes:
-${extraNotes || "(none)"}
-`;
-
-    // Super simple HTML, no string tricks
     const htmlContent = `
       <h1>New Order</h1>
       <p><strong>Customer email:</strong> ${customerEmail}</p>
       <p><strong>Customer name:</strong> ${customerName || "(not provided)"}</p>
       <p><strong>Item:</strong> ${itemName}</p>
       <p><strong>Quantity:</strong> ${quantity || 1}</p>
-      <p><strong>Notes:</strong> ${(extraNotes || "(none)")}</p>
+      <p><strong>Notes:</strong> ${extraNotes || "(none)"}</p>
     `;
 
     await resend.emails.send({
