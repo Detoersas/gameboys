@@ -9,7 +9,7 @@ const ORDERS = [
     id: "129391",
     customerName: "Pierce H",
     status: "Completed",
-    total: "$0.00",
+    URL: "https://leogames.vercel.app/",
     items: [
       { name: "website url", quantity: 1 },
       { name: "2 year warrenty", quantity: 1 },
@@ -19,7 +19,7 @@ const ORDERS = [
     id: "100001",
     customerName: "Angelo",
     status: "Completed",
-    total: "$0.00",
+    URL: "https://angelogabrielgiraldolopezisawesome.vercel.app/",
     items: [
       { name: "personal website", quantity: 1 },
     ],
