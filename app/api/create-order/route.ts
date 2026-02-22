@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     }
 
     const toAddress = process.env.EMAIL_TO || "dexteromasta@yahoo.com";
-    const fromAddress = process.env.EMAIL_FROM || "dexter.omasta2@icloud.com";
+    const fromAddress = process.env.EMAIL_FROM || "onboarding@resend.dev";
 
     const subject = `New order from ${customerEmail}`;
 
