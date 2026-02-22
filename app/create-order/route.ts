@@ -23,8 +23,8 @@ export async function POST(request: Request) {
       );
     }
 
-    const toAddress = process.env.EMAIL_TO || "dextermo1025@beaufortschools.org";
-    const fromAddress = process.env.EMAIL_FROM || "orders@example.com";
+    const toAddress = process.env.EMAIL_TO || "dexteromasta@yahoo.com";
+    const fromAddress = process.env.EMAIL_FROM || "dexter.omasta2@icloud.com";
 
     const subject = `New order from ${customerEmail}`;
 
@@ -40,18 +40,18 @@ Notes:
 ${extraNotes || "(none)"}
 `;
 
-    const htmlContent = `
-      <h1>New Order</h1>
-      <p><strong>Customer email:</strong> ${customerEmail}</p>
-      <p><strong>Customer name:</strong> ${customerName || "(not provided)"}</p>
-      <p><strong>Item:</strong> ${itemName}</p>
-      <p><strong>Quantity:</strong> ${quantity || 1}</p>
-      <p><strong>Notes:</strong>  
+const htmlContent = `
+  <h1>New Order</h1>
+  <p><strong>Customer email:</strong> ${customerEmail}</p>
+  <p><strong>Customer name:</strong> ${customerName || "(not provided)"}</p>
+  <p><strong>Item:</strong> ${itemName}</p>
+  <p><strong>Quantity:</strong> ${quantity || 1}</p>
+  <p><strong>Notes:</strong>  
 ${
-        extraNotes?.replace(/\n/g, "  
-") || "(none)"
-      }</p>
-    `;
+    (extraNotes || "(none)").replace(/\n/g, "  
+")
+  }</p>
+`;
 
     await resend.emails.send({
       from: fromAddress,
