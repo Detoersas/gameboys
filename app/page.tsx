@@ -10,13 +10,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const games = [
-  { name: "request new game or get custom domain or website", url: "https://dexterisntfunny.vercel.app/order/new", description: "make order now", category: "Premium", hot: true },
-  { name: "dexterisntfunnyarchive games", url: "https://dexterisntfunnywebsite.vercel.app/index.html", description: "my own selection of games", category: "Premium", hot: true },
-  { name: "is awesome", url: "https:/dxvercel.app/", description: "monkeygg", category: "=fun", hot: false },
-  { name: "trevors games - supernova", url: "https://dexterisntfunny.vercel.app/supernova", description: "coming soon", category: "SCHOOL LOCATED", hot: true },
-  { name: "MY Seraph", url: "https://dexteristhegoat.vercel.app", description: "BEST OF THE BEST", category: "Premium", hot: true },
-  { name: "B$tch b$y games", url: "https://notepad-40.a.ssl.fastly.net", description: "Fast-loading Nexora mirror with premium game collection", category: "New" },
-  { name: "Geometry dash", url: "https://dexteristhegoat.vercel.app/games/gdlite/index.html", description: "FAST GEOMETRY DASH BY ME AND MY OWN URL", category: "Classic", hot: true },
+  { name: "request new game or get custom domain or website", url: "https://gameboys.vercel.app/order/new", description: "make order now", category: "Premium", hot: true },
+  { name: "archive games", url: "thebasicss.vercel.app", description: "my own selection of games", category: "Premium", hot: true },
+  { name: "babydoll games", url: "thebasicsss.vercel.app", description: "monkeygg", category: "=fun", hot: false },
+  { name: "supernova", url: "https://sites.google.com/beaufortschools.org/supernova/home", description: "coming soon", category: "SCHOOL LOCATED", hot: true },
+  { name: "Seraph", url: "basicsssss.vercel.app", description: "BEST OF THE BEST", category: "Premium", hot: true },
+  { name: "games123", url: "https://notepad-40.a.ssl.fastly.net", description: "Fast-loading Nexora mirror with premium game collection", category: "New" },
+  { name: "Geometry dash", url: "https://basicsssss.vercel.app/games/gdlite/index.html", description: "FAST GEOMETRY DASH", category: "Classic", hot: true },
   { name: "LUNAR", url: "https://lunar-nu.vercel.app", description: "Home of Retro Bowl and classic sports games", category: "Sports" },
   { name: "ROMS", url: "https://gba.vercel.app", description: "Play classic GBA and retro console games in your browser", category: "Retro" },
   { name: "COPPER", url: "https://clever-schools.vercel.app", description: "Clean interface with hand-picked quality games", category: "Premium" },
@@ -25,10 +25,10 @@ const games = [
   { name: "MINECRAFT", url: "https://supanoob.vercel.app", description: "Play Minecraft 1.9 directly in your browser", category: "Classic", hot: true },
   { name: "BEANSITE", url: "https://mb7.vercel.app", description: "Lightweight game portal with fast load times", category: "New" },
   { name: "???", url: "https://rule34dle.vercel.app", description: "Mystery guessing game with unique gameplay mechanics", category: "Indie" },
-  { name: "PETEZAH", url: "https://new-sandbox-program-2-16858891.codehs.me", description: "Community favorite with classic and modern games", category: "Classic" },
+  { name: "PETEZAH", url: "thepetezah.vercel.app", description: "Community favorite with classic and modern games", category: "Classic" },
   { name: "STRANGE ROPE POLICE", url: "https://amazing-strange-rope-police.vercel.app", description: "Open-world action combining GTA with superhero powers", category: "Action", hot: true },
-  { name: "VOTE", url: "https://solo.to", description: "Support the community - vote for your favorite games", category: "Social" },
-  { name: "gn math", url: "https://gnmathbydexterisntfunny-imsohotright.vercel.app", description: "Has if not the best game catalog ever", category: "Premium", hot: true },
+  { name: "VOTE", url: "https://gameboys.vercel.app/order/new", description: "Support the community - vote for your favorite games", category: "Social" },
+  { name: "GN Math", url: "thebasic.vercel.app", description: "Has if not the best game catalog ever", category: "Premium", hot: true },
 ];
 
 export default function HomePage() {
