@@ -64,7 +64,7 @@ export default function SignUpPage() {
               </div>
             </Link>
             <h1 className="text-2xl font-bold text-foreground">Create an account</h1>
-            <p className="mt-1 text-muted-foreground">Join dexterisntfunny today</p>
+            <p className="mt-1 text-muted-foreground">Join gameboys today</p>
           </div>
 
           {/* Form */}
