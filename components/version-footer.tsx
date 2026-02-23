@@ -33,7 +33,7 @@ export function VersionFooter() {
             <div className="flex items-center gap-2">
               <Zap className="h-4 w-4 text-[#00a651] fill-[#00a651]" />
               <span className="text-sm font-black italic tracking-widest text-white uppercase">
-                DEXTER<span className="text-[#00a651]">ISNT</span>FUNNY
+                game<span className="text-[#00a651]">boys</span>repo
               </span>
             </div>
             <p className="text-xs font-medium text-white/30 tracking-tight">
@@ -74,7 +74,7 @@ export function VersionFooter() {
         {/* Bottom copyright/legal */}
         <div className="mt-8 text-center md:text-left border-t border-white/5 pt-4">
           <p className="text-[9px] font-medium text-white/20 uppercase tracking-[0.3em]">
-            &copy; {new Date().getFullYear()} DEXTER NETWORK. ALL ENCRYPTED PROTOCOLS ACTIVE.
+            &copy; {new Date().getFullYear()} gameboys NETWORK. ALL ENCRYPTED PROTOCOLS ACTIVE.
           </p>
         </div>
       </div>
