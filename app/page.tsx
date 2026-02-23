@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 const games = [
   { name: "request new game or get custom domain or website", url: "https://dexterisntfunny.vercel.app/order/new", description: "make order now", category: "Premium", hot: true },
   { name: "dexterisntfunnyarchive games", url: "https://dexterisntfunnywebsite.vercel.app/index.html", description: "my own selection of games", category: "Premium", hot: true },
-  { name: "angelo gabriel giraldo lopez is awesome", url: "https://angelogabrielgiraldolopezisawesome.vercel.app/", description: "monkeygg", category: "=fun", hot: false },
+  { name: "is awesome", url: "https:/dxvercel.app/", description: "monkeygg", category: "=fun", hot: false },
   { name: "trevors games - supernova", url: "https://dexterisntfunny.vercel.app/supernova", description: "coming soon", category: "SCHOOL LOCATED", hot: true },
   { name: "MY Seraph", url: "https://dexteristhegoat.vercel.app", description: "BEST OF THE BEST", category: "Premium", hot: true },
   { name: "B$tch b$y games", url: "https://notepad-40.a.ssl.fastly.net", description: "Fast-loading Nexora mirror with premium game collection", category: "New" },
