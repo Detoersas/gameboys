@@ -18,7 +18,7 @@ const apps = [
   {
     id: "1",
     name: "MOVIES",
-    url: "https://dexterisntfunny.carrd.co/#movies",
+    url: "about:blank",
     description:
       "Stream movies and shows for free - regularly updated library",
     category: "Entertainment",
@@ -27,7 +27,7 @@ const apps = [
   {
     id: "2",
     name: "Music",
-    url: "https://dexteristalentedmusic.vercel.app/",
+    url: "https://moviesforfreeeeeeee.vercel.app/",
     description: "Free music ported from spotify - no account required",
     category: "Entertainment",
   },
