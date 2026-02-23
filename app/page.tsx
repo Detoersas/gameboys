@@ -3,9 +3,7 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/navbar";
 import { VersionFooter } from "@/components/version-footer";
-import { 
-  Gamepad2, Zap, Trophy, Play, Cpu, Star 
-} from "lucide-react";
+import { Gamepad2, Zap, Trophy, Play, Cpu, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -37,6 +35,9 @@ export default function HomePage() {
   const [clicks, setClicks] = useState<{ id: number; x: number; y: number }[]>([]);
   const [engineStatus, setEngineStatus] = useState<"STABLE" | "UNSTABLE">("STABLE");
 
+  // Terms popup state
+  const [showTerms, setShowTerms] = useState(true);
+
   // 50/50 random engine status on load
   useEffect(() => {
     const randomStatus = Math.random() < 0.5 ? "STABLE" : "UNSTABLE";
@@ -51,6 +52,7 @@ export default function HomePage() {
         setClicks((prev) => prev.filter((c) => c.id !== newClick.id));
       }, 800);
     };
+
     window.addEventListener("click", handleGlobalClick);
     return () => window.removeEventListener("click", handleGlobalClick);
   }, []);
@@ -68,7 +70,87 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-[#00a651] selection:text-black overflow-x-hidden">
-      
+      {/* TERMS POPUP OVERLAY */}
+      <AnimatePresence>
+        {showTerms && (
+          <motion.div
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative w-[95%] max-w-xl rounded-2xl border border-red-500/40 bg-[#050505] p-6 sm:p-8 shadow-[0_0_40px_rgba(248,113,113,0.4)]"
+            >
+              <div className="mb-4 flex items-center gap-2 text-red-400">
+                <Star className="h-6 w-6 text-red-500" fill="currentColor" />
+                <span className="text-xs font-black uppercase tracking-[0.25em]">
+                  ⚠️ Important Notice
+                </span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-red-400 mb-3 uppercase">
+                School Use Prohibited
+              </h2>
+
+              <div className="space-y-3 text-xs sm:text-sm leading-relaxed text-white/80 max-h-[55vh] overflow-y-auto pr-1">
+                <p className="font-semibold text-red-300">Disclaimer & Terms of Use</p>
+                <p>
+                  This material is provided strictly for independent educational
+                  purposes only. It is intended for personal study, review, or
+                  private, home-based learning.
+                </p>
+                <p className="font-semibold text-red-300">Forbidden Use</p>
+                <p>
+                  DO NOT use, display, distribute, or present this material
+                  within any school, classroom, school-sponsored activity, or
+                  academic institution.
+                </p>
+                <p className="font-semibold text-red-300">Penalties for Violation</p>
+                <p>
+                  If this material is used in violation of this policy within a
+                  school setting, the user assumes all personal responsibility
+                  for the consequences. Such action may result in:
+                </p>
+                <ul className="list-disc pl-5 space-y-1 text-white/80">
+                  <li>Immediate confiscation of the material.</li>
+                  <li>
+                    Disciplinary action, punishment, or fines imposed by the
+                    school administration, according to their internal
+                    policies.
+                  </li>
+                  <li>
+                    Liability for any legal or administrative costs incurred by
+                    the school due to this unauthorized use.
+                  </li>
+                </ul>
+                <p className="font-semibold text-red-300">Agreement</p>
+                <p>
+                  By accessing this material, you agree to these terms and
+                  confirm that you are not using this site in any school or
+                  school-related environment.
+                </p>
+              </div>
+
+              <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                <button
+                  onClick={() => setShowTerms(false)}
+                  className="w-full sm:w-auto rounded-xl bg-red-500 px-5 py-2.5 text-xs font-black uppercase tracking-[0.2em] text-white shadow-[0_0_25px_rgba(248,113,113,0.6)] hover:bg-red-400 transition-colors"
+                >
+                  I Agree & Understand
+                </button>
+                <p className="text-[10px] text-white/40 text-center sm:text-right">
+                  If you do not agree, close this tab immediately.
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* RED STAR POPUPS */}
       <div className="pointer-events-none fixed inset-0 z-[100]">
         <AnimatePresence>
@@ -99,7 +181,9 @@ export default function HomePage() {
           <div>
             <div className="mb-2 flex items-center gap-2 text-[#00a651]">
               <Trophy className="h-5 w-5 animate-bounce" />
-              <span className="text-xs font-black uppercase tracking-widest text-[#00a651]/80">Elite Gaming Portal</span>
+              <span className="text-xs font-black uppercase tracking-widest text-[#00a651]/80">
+                Elite Gaming Portal
+              </span>
             </div>
             <h1 className="text-5xl font-black italic tracking-tighter sm:text-7xl">
               GAME<span className="text-[#00a651]">VAULT</span>
@@ -134,8 +218,8 @@ export default function HomePage() {
               onClick={() => setActiveCategory(cat)}
               className={cn(
                 "rounded-full px-6 py-2 text-xs font-black tracking-tighter uppercase transition-all border border-white/5",
-                activeCategory === cat 
-                  ? "bg-[#00a651] text-white shadow-[0_0_20px_rgba(0,166,81,0.5)] border-[#00a651]" 
+                activeCategory === cat
+                  ? "bg-[#00a651] text-white shadow-[0_0_20px_rgba(0,166,81,0.5)] border-[#00a651]"
                   : "bg-white/5 text-white/50 hover:bg-white/10 hover:text-white"
               )}
             >
@@ -181,9 +265,11 @@ export default function HomePage() {
                     PLAY NOW <Play className="h-3 w-3 fill-current" />
                   </a>
                   <div className="flex flex-col items-end">
-                    <span className="text-[9px] font-black text-white/20 uppercase tracking-[0.1em]">{game.category}</span>
+                    <span className="text-[9px] font-black text-white/20 uppercase tracking-[0.1em]">
+                      {game.category}
+                    </span>
                     <div className="mt-1 h-1 w-8 rounded-full bg-white/10 overflow-hidden">
-                       <div className="h-full w-2/3 bg-[#00a651] group-hover:w-full transition-all duration-500" />
+                      <div className="h-full w-2/3 bg-[#00a651] group-hover:w-full transition-all duration-500" />
                     </div>
                   </div>
                 </div>
