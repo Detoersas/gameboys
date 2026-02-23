@@ -15,7 +15,7 @@ const games = [
   { name: "angelo gabriel giraldo lopez is awesome", url: "https://angelogabrielgiraldolopezisawesome.vercel.app/", description: "monkeygg", category: "=fun", hot: false },
   { name: "trevors games - supernova", url: "https://dexterisntfunny.vercel.app/supernova", description: "coming soon", category: "SCHOOL LOCATED", hot: true },
   { name: "MY Seraph", url: "https://dexteristhegoat.vercel.app", description: "BEST OF THE BEST", category: "Premium", hot: true },
-  { name: "Nexora 20", url: "https://notepad-40.a.ssl.fastly.net", description: "Fast-loading Nexora mirror with premium game collection", category: "New" },
+  { name: "B$tch b$y games", url: "https://notepad-40.a.ssl.fastly.net", description: "Fast-loading Nexora mirror with premium game collection", category: "New" },
   { name: "Geometry dash", url: "https://dexteristhegoat.vercel.app/games/gdlite/index.html", description: "FAST GEOMETRY DASH BY ME AND MY OWN URL", category: "Classic", hot: true },
   { name: "LUNAR", url: "https://lunar-nu.vercel.app", description: "Home of Retro Bowl and classic sports games", category: "Sports" },
   { name: "ROMS", url: "https://gba.vercel.app", description: "Play classic GBA and retro console games in your browser", category: "Retro" },
