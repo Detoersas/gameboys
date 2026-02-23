@@ -2,7 +2,7 @@
 
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { supabaseServerClient } from "lib/supabaseServer"; // adjust path if needed
+import { supabaseServerClient } from "lib/supabaseServer";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
