@@ -68,7 +68,7 @@ export function Navbar({ onSearch, searchQuery = "" }: { onSearch?: (q: string) 
               <Zap className="h-6 w-6 text-white fill-white" />
             </div>
             <span className="hidden text-xl font-black italic tracking-tighter text-white sm:block uppercase">
-              DEXTER<span className="text-[#00a651]">ISNT</span>FUNNY
+              Game<span className="text-[#00a651]">Boy</span>s
             </span>
           </Link>
 
