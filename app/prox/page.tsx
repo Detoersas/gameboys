@@ -3,8 +3,14 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/navbar";
 import { VersionFooter } from "@/components/version-footer";
-import { 
-  Globe, Search, Zap, Shield, Play, Activity, Star 
+import {
+  Globe,
+  Search,
+  Zap,
+  Shield,
+  Play,
+  Activity,
+  Star,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -14,39 +20,45 @@ const proxies = [
   {
     name: "RAMMERHEAD",
     url: "https://rammerheaddnssucks.infotechnology.com/",
-    description: "High-performance browser-based proxy with unique session persistence.",
+    description:
+      "High-performance browser-based proxy with unique session persistence.",
     category: "High Speed",
     hot: true,
   },
   {
     name: "Shadow",
     url: "https://novalogic.tejidosdedignidad.org/",
-    description: "The gold standard for school unblocking. Highly customizable and fast.",
+    description:
+      "The gold standard for school unblocking. Highly customizable and fast.",
     category: "Stealth",
     new: true,
   },
   {
     name: "overclocked",
     url: "https://watch.national-birdshow.com/",
-    description: "V4 Galactic routing for bypassing the toughest firewalls and filters.",
+    description:
+      "V4 Galactic routing for bypassing the toughest firewalls and filters.",
     category: "Premium",
   },
   {
     name: "quazar",
     url: "https://quasarwithskbyte.infotechnology.com/",
-    description: "Reliable web proxy that supports YouTube and modern web apps perfectly.",
+    description:
+      "Reliable web proxy that supports YouTube and modern web apps perfectly.",
     category: "High Speed",
   },
   {
     name: "quazar",
     url: "https://learnskquasar-tech.infotechnology.com/",
-    description: "Legacy stealth technology optimized for privacy and anonymous surfing.",
+    description:
+      "Legacy stealth technology optimized for privacy and anonymous surfing.",
     category: "Stealth",
   },
   {
     name: "PROXY FINDER",
     url: "https://sites.google.com/beaufortschools.org/geodash-funds/proxy-finder-1",
-    description: "Sleek, minimalist gateway built for speed and low-latency web gaming.",
+    description:
+      "Sleek, minimalist gateway built for speed and low-latency web gaming.",
     category: "Premium",
   },
 ];
@@ -54,7 +66,12 @@ const proxies = [
 export default function ProxiesPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
-  const [clicks, setClicks] = useState<{ id: number; x: number; y: number }[]>([]);
+  const [clicks, setClicks] = useState<{ id: number; x: number; y: number }[]>(
+    []
+  );
+
+  // Terms popup state (shows on every page load)
+  const [showTerms, setShowTerms] = useState(true);
 
   // RED STAR CLICK LOGIC
   useEffect(() => {
@@ -65,6 +82,7 @@ export default function ProxiesPage() {
         setClicks((prev) => prev.filter((c) => c.id !== newClick.id));
       }, 800);
     };
+
     window.addEventListener("click", handleGlobalClick);
     return () => window.removeEventListener("click", handleGlobalClick);
   }, []);
@@ -72,15 +90,96 @@ export default function ProxiesPage() {
   const categories = ["All", "High Speed", "Stealth", "Premium"];
 
   const filteredProxies = proxies.filter((prox) => {
-    const matchesSearch = prox.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         prox.description?.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = activeCategory === "All" || prox.category === activeCategory;
+    const matchesSearch =
+      prox.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      prox.description?.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory =
+      activeCategory === "All" || prox.category === activeCategory;
     return matchesSearch && matchesCategory;
   });
 
   return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-[#00a651] selection:text-black font-sans overflow-x-hidden">
-      
+      {/* TERMS POPUP OVERLAY */}
+      <AnimatePresence>
+        {showTerms && (
+          <motion.div
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative w-[95%] max-w-xl rounded-2xl border border-red-500/40 bg-[#050505] p-6 sm:p-8 shadow-[0_0_40px_rgba(248,113,113,0.4)]"
+            >
+              <div className="mb-4 flex items-center gap-2 text-red-400">
+                <Star className="h-6 w-6 text-red-500" fill="currentColor" />
+                <span className="text-xs font-black uppercase tracking-[0.25em]">
+                  ⚠️ Important Notice
+                </span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-red-400 mb-3 uppercase">
+                School Use Prohibited
+              </h2>
+
+              <div className="space-y-3 text-xs sm:text-sm leading-relaxed text-white/80 max-h-[55vh] overflow-y-auto pr-1">
+                <p className="font-semibold text-red-300">Disclaimer & Terms of Use</p>
+                <p>
+                  This material is provided strictly for independent educational
+                  purposes only. It is intended for personal study, review, or
+                  private, home-based learning.
+                </p>
+                <p className="font-semibold text-red-300">Forbidden Use</p>
+                <p>
+                  DO NOT use, display, distribute, or present this material
+                  within any school, classroom, school-sponsored activity, or
+                  academic institution.
+                </p>
+                <p className="font-semibold text-red-300">Penalties for Violation</p>
+                <p>
+                  If this material is used in violation of this policy within a
+                  school setting, the user assumes all personal responsibility
+                  for the consequences. Such action may result in:
+                </p>
+                <ul className="list-disc pl-5 space-y-1 text-white/80">
+                  <li>Immediate confiscation of the material.</li>
+                  <li>
+                    Disciplinary action, punishment, or fines imposed by the
+                    school administration, according to their internal policies.
+                  </li>
+                  <li>
+                    Liability for any legal or administrative costs incurred by
+                    the school due to this unauthorized use.
+                  </li>
+                </ul>
+                <p className="font-semibold text-red-300">Agreement</p>
+                <p>
+                  By accessing this material, you agree to these terms and
+                  confirm that you are not using this site in any school or
+                  school-related environment.
+                </p>
+              </div>
+
+              <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                <button
+                  onClick={() => setShowTerms(false)}
+                  className="w-full sm:w-auto rounded-xl bg-red-500 px-5 py-2.5 text-xs font-black uppercase tracking-[0.2em] text-white shadow-[0_0_25px_rgba(248,113,113,0.6)] hover:bg-red-400 transition-colors"
+                >
+                  I Agree & Understand
+                </button>
+                <p className="text-[10px] text-white/40 text-center sm:text-right">
+                  If you do not agree, close this tab immediately.
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* RED STAR POPUPS */}
       <div className="pointer-events-none fixed inset-0 z-[100]">
         <AnimatePresence>
@@ -90,7 +189,11 @@ export default function ProxiesPage() {
               initial={{ opacity: 1, scale: 0, y: 0, rotate: 0 }}
               animate={{ opacity: 0, scale: 1.5, y: -100, rotate: 45 }}
               exit={{ opacity: 0 }}
-              style={{ left: click.x - 10, top: click.y - 10, position: "absolute" }}
+              style={{
+                left: click.x - 10,
+                top: click.y - 10,
+                position: "absolute",
+              }}
               className="text-red-600 drop-shadow-[0_0_8px_rgba(220,38,38,0.8)]"
             >
               <Star size={24} fill="currentColor" />
@@ -108,28 +211,32 @@ export default function ProxiesPage() {
       <Navbar onSearch={setSearchQuery} searchQuery={searchQuery} />
 
       <main className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6">
-        
         {/* Header Section */}
         <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <div className="mb-2 flex items-center gap-2 text-[#00a651]">
               <Shield className="h-5 w-5 animate-pulse" />
-              <span className="text-xs font-black uppercase tracking-widest">Encrypted Gateways</span>
+              <span className="text-xs font-black uppercase tracking-widest">
+                Encrypted Gateways
+              </span>
             </div>
             <h1 className="text-5xl font-black italic tracking-tighter sm:text-6xl">
               PROX<span className="text-[#00a651]">FLOW</span>
             </h1>
             <p className="mt-2 max-w-md text-white/50 italic leading-relaxed">
-              Bypass school restrictions with our collection of high-performance stealth proxies.
+              Bypass school restrictions with our collection of high-performance
+              stealth proxies.
             </p>
           </div>
-          
+
           <div className="flex gap-4">
             <div className="rounded-xl border border-white/5 bg-white/5 p-4 backdrop-blur-md border-b-2 border-b-[#00a651]">
               <div className="flex items-center gap-2 text-xs font-bold text-white/40 uppercase">
                 <Activity className="h-3 w-3 text-[#00a651]" /> Network Load
               </div>
-              <div className="text-2xl font-black text-white uppercase tracking-widest">MINIMAL</div>
+              <div className="text-2xl font-black text-white uppercase tracking-widest">
+                MINIMAL
+              </div>
             </div>
           </div>
         </div>
@@ -142,8 +249,8 @@ export default function ProxiesPage() {
               onClick={() => setActiveCategory(cat)}
               className={cn(
                 "rounded-full px-6 py-2 text-xs font-bold tracking-tighter uppercase transition-all border border-white/5",
-                activeCategory === cat 
-                  ? "bg-[#00a651] text-white shadow-[0_0_20px_rgba(0,166,81,0.4)] border-[#00a651]" 
+                activeCategory === cat
+                  ? "bg-[#00a651] text-white shadow-[0_0_20px_rgba(0,166,81,0.4)] border-[#00a651]"
                   : "bg-white/5 text-white/50 hover:bg-white/10 hover:text-white"
               )}
             >
@@ -199,7 +306,9 @@ export default function ProxiesPage() {
                   </a>
                   <div className="flex items-center gap-1.5 opacity-30 group-hover:opacity-100 transition-opacity">
                     <div className="h-1.5 w-1.5 rounded-full bg-[#00a651] shadow-[0_0_8px_#00a651]" />
-                    <span className="text-[10px] font-bold text-white uppercase tracking-tighter">SECURE</span>
+                    <span className="text-[10px] font-bold text-white uppercase tracking-tighter">
+                      SECURE
+                    </span>
                   </div>
                 </div>
               </motion.div>
@@ -211,7 +320,9 @@ export default function ProxiesPage() {
         {filteredProxies.length === 0 && (
           <div className="flex flex-col items-center justify-center py-32 text-center">
             <Globe className="h-16 w-16 text-white/10 mb-4" />
-            <h2 className="text-2xl font-black italic uppercase text-white/20 tracking-widest">Node Not Found</h2>
+            <h2 className="text-2xl font-black italic uppercase text-white/20 tracking-widest">
+              Node Not Found
+            </h2>
           </div>
         )}
       </main>
