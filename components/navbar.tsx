@@ -46,7 +46,6 @@ export function Navbar({ onSearch, searchQuery = "" }: { onSearch?: (q: string) 
   // NAV ITEMS LIST - APPS IS HERE
   const navLinks = [
     { href: "/", icon: Gamepad2, label: "GAMES" },
-    { href: "/prox", icon: Globe, label: "PROXIES" },
     { href: "/apps", icon: AppWindow, label: "APPS" }, 
   ];
 
