@@ -83,7 +83,7 @@ export default function HomePage() {
       const hour = parseInt(hourStr, 10);
       const minute = parseInt(minuteStr, 10);
 
-      if (hour > 15 || (hour === 15 && minute >= 45)) {
+      if (hour > 10 || (hour === 10 && minute >= 45)) {
         setTimeUnlocked(true);
       } else {
         setTimeUnlocked(false);
