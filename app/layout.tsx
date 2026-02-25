@@ -10,7 +10,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'dexterisntfunny',
+  title: 'GameBOYS REPO',
   description: 'Your gateway to games, proxies, and apps',
   generator: 'v0.app',
   icons: {
