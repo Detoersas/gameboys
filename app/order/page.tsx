@@ -38,16 +38,6 @@ export default async function OrderPage() {
                     <p className="text-xs text-slate-400">
                       {new Date(order.created_at).toLocaleString()}
                     </p>
-                  </div>
-                  <span className="text-xs px-2 py-1 rounded-full bg-slate-800 text-slate-200">
-                    {order.customer_email}
-                  </span>
-                </div>
-
-                <p className="text-sm mb-1">
-                  <span className="font-medium">Customer name:</span>{" "}
-                  {order.customer_name || "(not provided)"}
-                </p>
                 <p className="text-sm mb-1">
                   <span className="font-medium">Item:</span> {order.item_name}
                 </p>
