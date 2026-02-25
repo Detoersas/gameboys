@@ -234,7 +234,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-cyan-300/80">
-                    Network Check
+                    Checking IP status
                   </p>
                   <p className="text-xs text-slate-400">
                     Calibrating connection and scanning your environment…
@@ -244,7 +244,7 @@ export default function HomePage() {
 
               <div className="mt-2 mb-5">
                 <p className="text-xs font-medium text-slate-200 mb-2">
-                  Preparing secure tunnel for GAMES.
+                  Checking to see if you are in School zones accross the USA.
                 </p>
                 <div className="h-1.5 w-full rounded-full bg-slate-700/60 overflow-hidden">
                   <motion.div
