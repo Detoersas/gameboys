@@ -63,26 +63,38 @@ export default function HomePage() {
   }, []);
 
   // Time gate: unlock at 3:45 PM Eastern (approx, UTC-5)
-  useEffect(() => {
-    const checkUnlock = () => {
-      const now = new Date();
-
-      // Convert to UTC-5 (Eastern, without DST handling)
-      // 3:45 PM Eastern = 20:45 UTC when UTC-5
-      const target = new Date(now);
-      target.setUTCHours(20, 45, 0, 0); // 20:45 UTC
-
-      if (now >= target) {
-        setTimeUnlocked(true);
-      } else {
-        setTimeUnlocked(false);
-      }
+ useEffect(() => {
+  const checkUnlock = () => {
+    // Get the current time in America/New_York, including DST
+    const now = new Date();
+    const options: Intl.DateTimeFormatOptions = {
+      timeZone: "America/New_York",
+      hour12: false,
+      hour: "2-digit",
+      minute: "2-digit",
     };
 
-    checkUnlock();
-    const interval = setInterval(checkUnlock, 60 * 1000); // check every minute
-    return () => clearInterval(interval);
-  }, []);
+    const formatter = new Intl.DateTimeFormat("en-US", options);
+    const parts = formatter.formatToParts(now);
+
+    const hourStr = parts.find((p) => p.type === "hour")?.value ?? "00";
+    const minuteStr = parts.find((p) => p.type === "minute")?.value ?? "00";
+
+    const hour = parseInt(hourStr, 10);
+    const minute = parseInt(minuteStr, 10);
+
+    // Unlock when time in Eastern is 15:45 (3:45 PM) or later
+    if (hour > 15 || (hour === 15 && minute >= 45)) {
+      setTimeUnlocked(true);
+    } else {
+      setTimeUnlocked(false);
+    }
+  };
+
+  checkUnlock();
+  const interval = setInterval(checkUnlock, 60 * 1000);
+  return () => clearInterval(interval);
+}, []);
 
   const categories = ["All", "Premium", "Classic", "New", "Sports", "Retro"];
 
