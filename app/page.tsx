@@ -84,7 +84,7 @@ export default function HomePage() {
     const minute = parseInt(minuteStr, 10);
 
     // Unlock when time in Eastern is 15:45 (3:45 PM) or later
-    if (hour > 24 || (hour === 24 && minute >= 45)) {
+    if (hour > 15 || (hour === 15 && minute >= 45)) {
       setTimeUnlocked(true);
     } else {
       setTimeUnlocked(false);
