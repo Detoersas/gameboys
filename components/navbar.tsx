@@ -80,7 +80,7 @@ export function Navbar({
               <Zap className="relative h-5 w-5 text-cyan-300" />
             </div>
             <div className="hidden flex-col leading-tight sm:flex">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+              <span className="hidden text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
                 Detoersas
               </span>
               <span className="text-xl font-black tracking-tight text-slate-50">
