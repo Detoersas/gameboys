@@ -220,7 +220,7 @@ export default function HomePage() {
                     Verifying IP ADDRESS
                   </p>
                   <p className="text-xs text-white/50">
-                    Initializing secure confirmation…
+                    Checking if you are located in the School…
                   </p>
                 </div>
               </div>
