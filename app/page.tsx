@@ -156,7 +156,7 @@ export default function HomePage() {
                   <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300/80">
                     System Notice
                   </p>
-                  <p className="text-xs text-slate-400">Important terms before entering the vault.</p>
+                  <p className="text-xs text-slate-400">Important terms before entering the SITE.</p>
                 </div>
               </div>
 
@@ -201,7 +201,7 @@ export default function HomePage() {
                   }}
                   className="w-full sm:w-auto rounded-full bg-cyan-400 px-6 py-2.5 text-xs font-black uppercase tracking-[0.18em] text-slate-900 shadow-[0_0_25px_rgba(34,211,238,0.7)] hover:bg-cyan-300 transition-colors"
                 >
-                  Enter Vault
+                  Enter Site
                 </button>
 
                 <p className="text-[10px] text-slate-500 text-center sm:text-right">
@@ -244,7 +244,7 @@ export default function HomePage() {
 
               <div className="mt-2 mb-5">
                 <p className="text-xs font-medium text-slate-200 mb-2">
-                  Preparing secure tunnel for GAMEVAULT.
+                  Preparing secure tunnel for GAMES.
                 </p>
                 <div className="h-1.5 w-full rounded-full bg-slate-700/60 overflow-hidden">
                   <motion.div
@@ -273,19 +273,18 @@ export default function HomePage() {
             {/* TOP SECTION */}
             <div className="mb-10 grid gap-8 md:grid-cols-[minmax(0,2fr)_minmax(0,1.3fr)] md:items-end">
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-cyan-300 mb-3">
+                <div className="hidden inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-cyan-300 mb-3">
                   <Trophy className="h-3.5 w-3.5" />
                   <span>Game Hub</span>
                 </div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
                   <span className="text-slate-50">Game</span>
                   <span className="bg-gradient-to-r from-cyan-400 to-sky-300 bg-clip-text text-transparent">
-                    Vault
+                    BOYS
                   </span>
                 </h1>
                 <p className="mt-3 max-w-xl text-sm sm:text-base text-slate-400">
-                  Scroll through a curated collection of fast-loading mirrors, classics, and hidden
-                  gems — all in one sleek control panel.
+                  NOT FOR SCHOOL USAGE
                 </p>
               </div>
 
@@ -298,7 +297,7 @@ export default function HomePage() {
                         Engine
                       </span>
                       <span className="text-[10px] uppercase tracking-[0.18em] text-slate-500">
-                        Live status
+                        ?
                       </span>
                     </div>
                     <div
