@@ -217,17 +217,17 @@ export default function HomePage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-emerald-300/80">
-                    Nexus Scanner
+                    Verifying IP ADDRESS
                   </p>
                   <p className="text-xs text-white/50">
-                    Initializing secure game routes…
+                    Initializing secure confirmation…
                   </p>
                 </div>
               </div>
 
               <div className="mt-2 mb-4">
                 <p className="text-xs font-medium text-white/70 mb-2">
-                  Searching the web for unblocked mirrors and portals…
+                  This is an extremely advanced system…
                 </p>
                 <div className="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
                   <motion.div
@@ -239,7 +239,7 @@ export default function HomePage() {
               </div>
 
               <div className="mt-4 flex justify-between text-[10px] text-white/40">
-                <span>Simulated network scan • ~4 seconds</span>
+                <span>Simulated network scan</span>
                 <span>Do not close this tab</span>
               </div>
             </motion.div>
