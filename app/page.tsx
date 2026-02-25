@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const games = [
-  { name: "request new game or get custom domain or website", url: "https://gameboys.vercel.app/order/new", description: "make order now", category: "Premium", hot: true },
   { name: "archive games", url: "thebasicss.vercel.app", description: "my own selection of games", category: "Premium", hot: true },
   { name: "babydoll games", url: "thebasicsss.vercel.app", description: "monkeygg", category: "=fun", hot: false },
   { name: "supernova", url: "https://sites.google.com/beaufortschools.org/supernova/home", description: "coming soon", category: "SCHOOL LOCATED", hot: true },
